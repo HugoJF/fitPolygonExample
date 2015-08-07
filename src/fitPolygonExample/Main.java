@@ -125,9 +125,9 @@ public class Main {
  
 		// Finds edges inside the image
 		CannyEdge<ImageFloat32,ImageFloat32> canny =
-				FactoryEdgeDetectors.canny(2, false, true, ImageFloat32.class, ImageFloat32.class);
+				FactoryEdgeDetectors.canny(3, false, true, ImageFloat32.class, ImageFloat32.class);
  
-		canny.process(input,0.1f,0.3f,binary);
+		canny.process(input,0.3f,0.4f,binary);
  
 		List<Contour> contours = BinaryImageOps.contour(binary, ConnectRule.EIGHT, null);
  
@@ -151,7 +151,7 @@ public class Main {
  
 	public static void main( String args[] ) {
 		// load and convert the image into a usable format
-		BufferedImage image = UtilImageIO.loadImage("C:\\Users\\Hugo\\Dropbox\\surfExtractor\\diversosGraosJuntos\\5A\\Img00133.jpg");
+		BufferedImage image = UtilImageIO.loadImage("C:\\Users\\Hugo\\Dropbox\\surfExtractor\\trema_micrantha\\trema_micrantha_1_downscaled.jpg");
 		ImageFloat32 input = ConvertBufferedImage.convertFromSingle(image, null, ImageFloat32.class);
  
 		ShowImages.showWindow(image,"Original");
